@@ -24,5 +24,10 @@ function palindrome3(str, memo=null) {
         if(str[0] === str.slice(-1)) return palindrome3(str.slice(1,-1), memo)
         return false;
 }
-// console.log(palindrome3("aba"));
+function palindrome4(str) { // less good bc checks twice every pair of characters
+    return str.split('').every((char, index) => {
+        return char === str[str.length - index - 1]
+    })
+}
+// console.log(palindrome4("aba"));
 module.exports = palindrome;
