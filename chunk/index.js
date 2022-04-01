@@ -41,8 +41,17 @@ function chunk3(array, size) {
     }
     return chunked
 }
+function chunk4(array, size) {
+    let chunked = [];
+    index = 0;
+    while (index < array.length) {
+        chunked.push(array.slice(index,index + size))
+        index = index + size
+    }
+    return chunked
+}
 
-console.log(chunk3([1,2,3,4,5], 2));
+console.log(chunk4([1,2,3,4,5], 2));
 
 
 module.exports = chunk;
