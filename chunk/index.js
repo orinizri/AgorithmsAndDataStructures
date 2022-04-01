@@ -23,7 +23,6 @@ function chunk(array, size) {
     return newArray
 }
 function chunk2(array, size) {
-    let counter = 0;
     let chunked = [];
     for (let num of array) {
         let last = chunked[chunked.length - 1] 
