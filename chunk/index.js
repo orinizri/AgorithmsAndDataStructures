@@ -26,7 +26,7 @@ function chunk2(array, size) {
     let chunked = [];
     for (let num of array) {
         let last = chunked[chunked.length - 1] 
-        if (last === undefined || last.length === size) {
+        if (!last || last.length === size) {
             chunked.push([num])
         } else {
             last.push(num)
@@ -34,7 +34,15 @@ function chunk2(array, size) {
     }
     return chunked;
 }
+function chunk3(array, size) {
+    let chunked = [];
+    for (let i = 0 ; i < array.length ; i = i + size ) {
+        chunked.push(array.slice(i,i + size))
+    }
+    return chunked
+}
 
-console.log(chunk2([1,2,3,4,5], 2));
+console.log(chunk3([1,2,3,4,5], 2));
+
 
 module.exports = chunk;
