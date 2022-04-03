@@ -17,8 +17,18 @@ function capitalize2(str) {
     for (let word of str.split(' ')) {
         words.push(word[0].toUpperCase() + word.slice(1))
     }
-    return words.join(' ')
+    return words.join(' ');
+}
+function capitalize3(str) {
+    let result = str[0].toUpperCase();
+        for (let i = 1 ; i < str.length ; i++) {
+            str[ i - 1] === ' ' ? result += str[i].toUpperCase() : result += str[i]
+            }
+    return result
 }
 
-console.log(capitalize2("hey there!"));
+
+
+
+console.log(capitalize3("hey there!"));
 module.exports = capitalize;
