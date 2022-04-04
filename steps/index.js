@@ -44,7 +44,7 @@ function steps2(n) {
     }
 }
 
-function steps3(n, row = 0, stair = '', column = 0) {
+function steps3(n, row = 0, stair = '') {
     if (n === row) return;
     if (n === stair.length) {
         console.log(stair)
