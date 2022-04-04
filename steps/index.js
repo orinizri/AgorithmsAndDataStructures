@@ -30,21 +30,21 @@ function steps(n) {
     }
 }
 
-function steps3(n) {
+function steps2(n) {
     for (let row = 0; row < n; row++) {
         let stair = '';
         for (let column = 0; column < n; column++) {
             if (column <= row) {
                 stair += '#';
             } else {
-                stair += '0';
+                stair += ' ';
             }
         }
         console.log(stair);
     }
 }
 
-function steps2(n, row = 0, stair = '', column = 0) {
+function steps3(n, row = 0, stair = '', column = 0) {
     if (n === row) return;
     if (n === stair.length) {
         console.log(stair)
@@ -56,6 +56,6 @@ function steps2(n, row = 0, stair = '', column = 0) {
     }
     steps(n, row, stair)
 }
-console.log(steps2(3));
+console.log(steps3(3));
 
 module.exports = steps;
