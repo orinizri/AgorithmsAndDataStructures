@@ -33,15 +33,15 @@ function pyramid2(n) {
         console.log(level);
     }
 }
-function pyramid3(n, row=0, column=0, level='') {
+function pyramid3(n, row=0, level='') {
     let midpoint = Math.floor((n*2 - 1) / 2)
     if (n === row) return;
-    if (column === n*2 - 1) {
+    if (level.length === n*2 - 1) {
         console.log(level)
         return pyramid3(n, row + 1)
     }
-    column <= midpoint + row && column >= midpoint - row ? level += '#' : level += ' ';
-    pyramid3(n, row, column + 1, level)
+    level.length <= midpoint + row && level.length >= midpoint - row ? level += '#' : level += ' ';
+    pyramid3(n, row, level)
 }
 
 console.log(pyramid3(4));
