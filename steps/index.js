@@ -18,12 +18,12 @@
 //       '####'
 
 function steps(n) {
-    for (let step=0 ; step < n ; step++) {
+    for (let step = 0; step < n; step++) {
         let stepString = '';
-        for (let sulamitIndex=0; sulamitIndex<=step ; sulamitIndex++) {
+        for (let sulamitIndex = 0; sulamitIndex <= step; sulamitIndex++) {
             stepString += '#'
         }
-        for (let spaceIndex=1 ; spaceIndex < n-step ; spaceIndex++) {
+        for (let spaceIndex = 1; spaceIndex < n - step; spaceIndex++) {
             stepString += ' '
         }
         console.log(stepString)
@@ -31,9 +31,9 @@ function steps(n) {
 }
 
 function steps3(n) {
-    for (let row = 0 ; row < n ; row++) {
+    for (let row = 0; row < n; row++) {
         let stair = '';
-        for (let column = 0 ; column < n ; column++) {
+        for (let column = 0; column < n; column++) {
             if (column <= row) {
                 stair += '#';
             } else {
@@ -44,11 +44,11 @@ function steps3(n) {
     }
 }
 
-function steps2(n, row=0, stair='', column=0) {
-    if (n=== row) return;
-    if (n===stair.length) {
+function steps2(n, row = 0, stair = '', column = 0) {
+    if (n === row) return;
+    if (n === stair.length) {
         console.log(stair)
-        return steps(n, row +1)
+        return steps(n, row + 1)
     }
     if (stair.length <= row) {
         stair += '#';
