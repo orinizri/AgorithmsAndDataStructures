@@ -30,8 +30,9 @@ function fib2(n) {
 
 function fib3(n) {
     // base case
-    
+    if (n < 2) return n;
     // handle 
+    return fib3(n-1) + fib3(n-2)
 }
 
 console.log(fib3(4))
