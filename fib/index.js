@@ -11,25 +11,29 @@
 function fib(n) {
     let curr = 1;
     let prev = 0;
-    for ( let i = 0 ; i < n ; i++ ) {
-        let temp = curr
+    for ( let i = 1 ; i < n ; i++ ) {
+        let temp = curr;
         curr = curr + prev;
-        prev = temp
+        prev = temp;
     }
-    return curr
+    return curr;
 }
 
 function fib2(n) {
-    let curr = 1;
-    let prev = 0;
-    for ( let i = 0 ; i < n ; i++ ) {
-        let temp = curr
-        curr = curr + prev;
-        prev = temp
+    const result = [0,1];
+    for (let i = 2 ; i<= n ; i++) {
+        result.push(result[i-1] + result[i-2])
     }
-    return curr
+    return result[n]
 }
 
-console.log(fib(6))
+
+function fib3(n) {
+    // base case
+    
+    // handle 
+}
+
+console.log(fib3(4))
 
 module.exports = fib;
