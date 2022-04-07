@@ -28,13 +28,46 @@ function fib2(n) {
 }
 
 
-function fib3(n) {
+function fib3(n, memo={}) {
     // base case
     if (n < 2) return n;
     // handle 
-    return fib3(n-1) + fib3(n-2)
+    result = fib3(n-1, memo) + fib3(n-2, memo);
+    if (!memo[n]) {
+        memo[n] = result
+        return result
+    } else {
+        return memo[n]
+    }
 }
 
-console.log(fib3(4))
+function fib4(n, memo={}) {
+    // base case
+    if (n < 2) return n;
+    // handle 
+    result = fib4(n-1, memo) + fib4(n-2, memo);
+    if (!memo[n]) {
+        memo[n] = result
+        return result
+    } else {
+        return memo[n]
+    }
+}
+
+console.time("fib")
+console.log(fib(15))
+console.timeEnd("fib")
+
+console.time("fib2")
+console.log(fib2(15))
+console.timeEnd("fib2")
+
+console.time("fib3")
+console.log(fib3(15))
+console.timeEnd("fib3")
+
+console.time("fib4")
+console.log(fib3(15))
+console.timeEnd("fib4")
 
 module.exports = fib;
