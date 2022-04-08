@@ -17,8 +17,7 @@ class Queue {
         this.queue.unshift(number);
     }
     remove() {
-        const removed = this.queue.pop();
-        return removed;
+        return this.queue.pop();
     }
 }
 
