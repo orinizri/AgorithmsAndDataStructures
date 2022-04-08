@@ -60,22 +60,22 @@ function memoize(fn) {
     }
 }
 
-fib = memoize(fib);
-fib(5)
+fib3 = memoize(fib3);
+// fib2(30)
 // console.time("fib")
 // console.log(fib(30))
 // console.timeEnd("fib")
 
-// console.time("fib2")
-// console.log(fib2(30))
-// console.timeEnd("fib2")
+console.time("fib2")
+console.log(fib2(30))
+console.timeEnd("fib2")
 
-// console.time("fib3")
-// console.log(fib3(30))
-// console.timeEnd("fib3")
+console.time("fib3")
+console.log(fib3(30))
+console.timeEnd("fib3")
 
 console.time("fib4")
-console.log(fib4(10))
+console.log(fib4(30))
 console.timeEnd("fib4")
 
 module.exports = fib;
