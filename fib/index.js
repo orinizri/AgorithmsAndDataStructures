@@ -28,46 +28,54 @@ function fib2(n) {
 }
 
 
-function fib3(n, memo={}) {
-    // base case
+function fib3(n) {
+    // Base case
     if (n < 2) return n;
-    // handle 
-    result = fib3(n-1, memo) + fib3(n-2, memo);
-    if (!memo[n]) {
-        memo[n] = result
-        return result
-    } else {
-        return memo[n]
-    }
+
+    return fib3(n-1) + fib3(n-2);
 }
 
 function fib4(n, memo={}) {
-    // base case
+    // Base case
     if (n < 2) return n;
-    // handle 
-    result = fib4(n-1, memo) + fib4(n-2, memo);
+    
     if (!memo[n]) {
-        memo[n] = result
-        return result
+        memo[n] = fib4(n-1, memo) + fib4(n-2, memo);
+        return memo[n]
     } else {
         return memo[n]
     }
 }
 
-console.time("fib")
-console.log(fib(15))
-console.timeEnd("fib")
+function memoize(fn) {
+    const cache = {};
+    return function(...args) { // array of arguments
+        if (cache[args]) {
+            return cache[args]
+        }
+    const result = fn.apply(this, args)
+    cache[args] = result;
 
-console.time("fib2")
-console.log(fib2(15))
-console.timeEnd("fib2")
+    return result;
+    }
+}
 
-console.time("fib3")
-console.log(fib3(15))
-console.timeEnd("fib3")
+fib = memoize(fib);
+fib(5)
+// console.time("fib")
+// console.log(fib(30))
+// console.timeEnd("fib")
+
+// console.time("fib2")
+// console.log(fib2(30))
+// console.timeEnd("fib2")
+
+// console.time("fib3")
+// console.log(fib3(30))
+// console.timeEnd("fib3")
 
 console.time("fib4")
-console.log(fib3(15))
+console.log(fib4(10))
 console.timeEnd("fib4")
 
 module.exports = fib;
