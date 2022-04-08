@@ -9,9 +9,8 @@
 //     q.remove(); // returns 1;
 
 class Queue {
-    constructor(number) {
+    constructor() {
         this.queue = [];
-        this.number = number;
     }
     
     add(number) {
