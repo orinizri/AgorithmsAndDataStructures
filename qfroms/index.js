@@ -17,32 +17,31 @@ const Stack = require('./stack');
 // 1, 2 => return 1 => return 2 
 
 class Queue {
+
     constructor() {
-        this.s = new Stack();
-        this.s2 = new Stack();
+        this.stack1 = new Stack();
+        this.stack2 = new Stack();
     }
-    add(num) {
-            this.s.push(num);
-    }
-    remove() {
-        if (this.s.data.length === 1) return this.s.pop()
-        while (this.s.data.length > 1) {
-            let last_in_stack = this.s.data.pop();
-            this.s2.data.push(last_in_stack);
-        }
-        const removed = this.s.pop()
-        while (this.s2.data.length > 0) {
-            let last_in_stack = this.s2.data.pop();
-            this.s.data.push(last_in_stack);
-        }
-        return removed;
+    add(record) {
+        this.refill(this.stack2, this.stack1);
+        this.stack1.push(record);
+        this.refill(this.stack1, this.stack2);
     }
     peek() {
-        return this.s.data[0];
+        return this.stack2.peek();
+    }
+    remove() {
+        return this.stack2.pop();
     }
 
+    refill(source, destination) {
+        while (source.peek()) {
+            destination.push(source.pop());
+        }
+    }
 }
-const q = new Queue(); // 1, 2 => 2 
+
+const q = new Queue(); 
 q.add(1);
 q.add(2);
 console.log(q)
