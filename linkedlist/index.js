@@ -27,6 +27,17 @@ class LinkedList {
         }
         return counter
     }
+    getFirst() {
+        return this.head;
+    }
+    getLast() {
+        let node = this.head
+        while (node.next) {
+            node = node.next;
+        }
+        return node
+        
+    }
 }
 
 let l = new LinkedList();
@@ -34,7 +45,7 @@ l.head = new Node("first");
 l.head = new Node("second", l.head);
 console.log(l.insertFirst(10))
 console.log(l);
-console.log(l.size());
+console.log(l.getLast());
 
 // let n = new Node("second", first)
 
