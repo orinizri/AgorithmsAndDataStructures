@@ -19,13 +19,23 @@ class LinkedList {
         this.head = new Node(data, this.head);
         return this.head
     }
-    
+    size() {
+        let counter = 1;
+        while (this.head.next) {
+            this.head = this.head.next
+            counter++
+        }
+        return counter
+    }
 }
 
 let l = new LinkedList();
 l.head = new Node("first");
-console.log(l);
+l.head = new Node("second", l.head);
 console.log(l.insertFirst(10))
+console.log(l);
+console.log(l.size());
+
 // let n = new Node("second", first)
 
 
