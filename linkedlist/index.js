@@ -16,14 +16,10 @@ class LinkedList {
         this.head = null
     }
     insertFirst(data) {
-        if (this.head) {
-            let temp = this.head
-            this.head = new Node(data, temp);
-        } else {
-            this.head = new Node(data);
-        }
+        this.head = new Node(data, this.head);
         return this.head
     }
+    
 }
 
 let l = new LinkedList();
