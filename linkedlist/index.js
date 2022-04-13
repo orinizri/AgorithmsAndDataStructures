@@ -35,8 +35,11 @@ class LinkedList {
         while (node.next) {
             node = node.next;
         }
-        return node
-        
+        return node;
+    }
+    removeFirst() {
+        this.head = this.head.next;
+        return this.head
     }
 }
 
@@ -45,7 +48,7 @@ l.head = new Node("first");
 l.head = new Node("second", l.head);
 console.log(l.insertFirst(10))
 console.log(l);
-console.log(l.getLast());
+console.log(l.removeFirst());
 
 // let n = new Node("second", first)
 
