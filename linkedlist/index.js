@@ -20,10 +20,10 @@ class LinkedList {
         return this.head
     }
     size() {
-        let counter = 1;
-        while (this.head.next) {
-            this.head = this.head.next
+        let counter = 0;
+        while (this.head) {
             counter++
+            this.head = this.head.next
         }
         return counter
     }
