@@ -3,17 +3,34 @@
 // See 'directions' document
 
 class Node {
-    constructor(data, node) {
+    constructor(data, next=null) {
         this.data = data;
-        this.node = node;
+        this.next = next;
     }
     
     
 }
-let first = new Node("first") 
-let n = new Node("second", first)
-console.log(n);
 
-class LinkedList {}
+class LinkedList {
+    constructor() {
+        this.head = null
+    }
+    insertFirst(data) {
+        if (this.head) {
+            let temp = this.head
+            this.head = new Node(data, temp);
+        } else {
+            this.head = new Node(data);
+        }
+        return this.head
+    }
+}
+
+let l = new LinkedList();
+l.head = new Node("first");
+console.log(l);
+console.log(l.insertFirst(10))
+// let n = new Node("second", first)
+
 
 module.exports = { Node, LinkedList };
