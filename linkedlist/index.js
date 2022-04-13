@@ -37,10 +37,26 @@ class LinkedList {
         }
         return node;
     }
+    clearList() {
+        this.head = null
+        return this.head
+    }
     removeFirst() {
+        if (!this.head) return;
         this.head = this.head.next;
         return this.head
     }
+    removeLast() {
+        let prevNode = this.head
+        let node = this.head.next
+        while (node.next) {
+            prevNode = prevNode.next;
+            node = node.next;
+        }
+        prevNode.next = null
+        return node
+    }
+
 }
 
 let l = new LinkedList();
@@ -48,7 +64,7 @@ l.head = new Node("first");
 l.head = new Node("second", l.head);
 console.log(l.insertFirst(10))
 console.log(l);
-console.log(l.removeFirst());
+console.log(l.removeLast());
 
 // let n = new Node("second", first)
 
