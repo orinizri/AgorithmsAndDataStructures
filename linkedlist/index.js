@@ -13,60 +13,80 @@ class Node {
 
 class LinkedList {
     constructor() {
-        this.head = null
+        this.head = null;
     }
     insertFirst(data) {
         this.head = new Node(data, this.head);
-        return this.head
+        return this.head;
     }
     size() {
         let counter = 0;
         while (this.head) {
-            counter++
-            this.head = this.head.next
+            counter++;
+            this.head = this.head.next;
         }
-        return counter
+        return counter;
     }
     getFirst() {
         return this.head;
     }
     getLast() {
-        let node = this.head
+        let node = this.head;
         while (node.next) {
             node = node.next;
         }
         return node;
     }
     clearList() {
-        this.head = null
-        return this.head
+        this.head = null;
+        return this.head;
     }
     removeFirst() {
         if (!this.head) return;
         this.head = this.head.next;
-        return this.head
+        return this.head;
     }
     removeLast() {
-        let prevNode = this.head
-        let node = this.head.next
+        if (!this.head) return;
+        if (!this.head.next) {
+            this.head = null;
+            return this.head;
+        }
+        let prevNode = this.head;
+        let node = this.head.next;
         while (node.next) {
-            prevNode = prevNode.next;
+            prevNode = node;
             node = node.next;
         }
-        prevNode.next = null
-        return node
+        prevNode.next = null;
+        return node;
     }
-
+    insertLast(data) {
+        let lastNode = this.getLast();
+        if (!lastNode) {
+            this.head = new Node(data);
+            return this.head;
+        }
+        lastNode.next =  new Node(data);
+        return newNode;
+    }
+    getAt(index) {
+        let counter = 0;
+        let node = this.head;
+        while (node) {
+            if (counter === index) return node;
+            counter++;
+            node = node.next;
+        }
+        return null;
+    }
 }
 
 let l = new LinkedList();
-l.head = new Node("first");
-l.head = new Node("second", l.head);
-console.log(l.insertFirst(10))
-console.log(l);
-console.log(l.removeLast());
-
-// let n = new Node("second", first)
+l.head = new Node("2");
+l.head = new Node("3", l.head);
+l.insertFirst("1")
+console.log("at", l.getAt(0));
 
 
 module.exports = { Node, LinkedList };
