@@ -87,7 +87,7 @@ class LinkedList {
             return;
         }
         let prevNode = this.getAt(index - 1);
-        if (!prevNode) return;
+        if (!prevNode || !prevNode.next) return;
         if (prevNode.next.next) {
             prevNode.next = prevNode.next.next
             return;
