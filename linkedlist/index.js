@@ -80,13 +80,29 @@ class LinkedList {
         }
         return null;
     }
+    removeAt(index) {
+        if (!this.head) return;
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        let prevNode = this.getAt(index - 1);
+        if (!prevNode) return;
+        if (prevNode.next.next) {
+            prevNode.next = prevNode.next.next
+            return;
+        }
+    }
 }
 
 let l = new LinkedList();
-l.head = new Node("2");
-l.head = new Node("3", l.head);
+l.head = new Node("3");
+l.head = new Node("2", l.head);
 l.insertFirst("1")
-console.log("at", l.getAt(0));
+l.insertFirst("0")
+console.log("list before", l);
+console.log("at", l.removeAt(10));
+console.log("list after", l);
 
 
 module.exports = { Node, LinkedList };
