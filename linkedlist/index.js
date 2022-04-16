@@ -93,6 +93,31 @@ class LinkedList {
             return;
         }
     }
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data, this.head);
+        };
+        if (index === 0) {
+            this.head = new Node(data, this.head)
+            return this.head
+        };
+        let prevNode = this.head;
+        let node = this.head.next;
+        let counter = 1;
+        while (counter <= index) {
+            if (counter === index) {
+                const newNode = new Node(data, node);
+                prevNode.next = newNode;
+                return newNode;
+            }
+            if (node.next) {
+                node = node.next;
+                prevNode = prevNode.next;
+                counter++; 
+            }
+        }
+        return 'out of range';
+    }
 }
 
 let l = new LinkedList();
@@ -101,7 +126,7 @@ l.head = new Node("2", l.head);
 l.insertFirst("1")
 l.insertFirst("0")
 console.log("list before", l);
-console.log("at", l.removeAt(10));
+l.insertAt('Hello', 1);
 console.log("list after", l);
 
 
