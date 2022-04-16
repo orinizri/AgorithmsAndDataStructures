@@ -101,33 +101,19 @@ class LinkedList {
             this.head = new Node(data, this.head)
             return this.head
         };
-        let prevNode = this.head;
-        let node = this.head.next;
-        let counter = 1;
-        while (counter <= index) {
-            if (counter === index) {
-                const newNode = new Node(data, node);
-                prevNode.next = newNode;
-                return newNode;
-            }
-            if (node.next) {
-                node = node.next;
-                prevNode = prevNode.next;
-                counter++; 
-            }
-        }
-        return 'out of range';
+        const prevNode = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, prevNode)
+        prevNode.next = node;
     }
 }
-
 let l = new LinkedList();
 l.head = new Node("3");
 l.head = new Node("2", l.head);
 l.insertFirst("1")
 l.insertFirst("0")
 console.log("list before", l);
-l.insertAt('Hello', 1);
-console.log("list after", l);
+l.insertAt('Hello', 5);
+console.log("list after", l.head.next.next.next);
 
 
 module.exports = { Node, LinkedList };
