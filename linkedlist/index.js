@@ -15,7 +15,7 @@ class LinkedList {
     constructor() {
         this.head = null;
     }
-    insertFirst(data) {
+    insertFirst(data) { // or insertAt(0)
         this.head = new Node(data, this.head);
         return this.head;
     }
@@ -27,10 +27,10 @@ class LinkedList {
         }
         return counter;
     }
-    getFirst() {
+    getFirst() { // or getAt(0)
         return this.head;
     }
-    getLast() {
+    getLast() { // or getAt(this.size() - 1)
         let node = this.head;
         while (node.next) {
             node = node.next;
@@ -41,12 +41,12 @@ class LinkedList {
         this.head = null;
         return this.head;
     }
-    removeFirst() {
+    removeFirst() { // or removeAt(0)
         if (!this.head) return;
         this.head = this.head.next;
         return this.head;
     }
-    removeLast() {
+    removeLast() { // or removeAt(this.size() - 1)
         if (!this.head) return;
         if (!this.head.next) {
             this.head = null;
@@ -61,7 +61,7 @@ class LinkedList {
         prevNode.next = null;
         return node;
     }
-    insertLast(data) {
+    insertLast(data) { // or insertAt(this.size() - 1)
         let lastNode = this.getLast();
         if (!lastNode) {
             this.head = new Node(data);
