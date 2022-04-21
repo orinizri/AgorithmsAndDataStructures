@@ -17,14 +17,14 @@ function circular(list) {
     }
     return false;
 }
-  const l = new LinkedList();
-  const a = new Node('a');
-  const b = new Node('b');
-  const c = new Node('c');
-  l.head = a;
-  a.next = b;
-  b.next = c;
-  c.next = b;
-  console.log(circular(l)) // true
+const l = new LinkedList();
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+l.head = a;
+a.next = b;
+b.next = c;
+c.next = b;
+console.log(circular(l)) // true
 
 module.exports = circular;
