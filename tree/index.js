@@ -40,6 +40,15 @@ class Tree {
             fn(node);
         }
     }
+    traverseDF(fn) {
+        let arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift()
+            arr.unshift(...node.children);
+            fn(node);
+        }
+    }
+
 
 }
 
