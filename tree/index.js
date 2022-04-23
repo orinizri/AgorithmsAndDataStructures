@@ -2,7 +2,7 @@
 // 1) Create a node class.  The constructor
 // should accept an argument that gets assigned
 // to the data property and initialize an
-// empty array for storing children. The node
+// empty arr for storing children. The node
 // class should have methods 'add' and 'remove'.
 // 2) Create a tree class. The tree constructor
 // should initialize a 'root' property to null.
@@ -23,19 +23,32 @@ class Node {
     }
 }
 
-class Tree {
-    constructor(data) {
-    this.data = data;
-    this.root = null;
-    }
-
-    
-}
-
-
 let node = new Node("hello")
 node.add("bye")
 node.remove("bye")
 console.log(node);
+
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+    traverseBF(fn) {
+        let arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift()
+            arr.push(...node.children);
+            fn(node);
+        }
+    }
+
+}
+
+let node2 = new Node(1);
+const tree = new Tree();
+tree.root = node2;
+tree.traverseBF(node => {node.data += 10})
+console.log(tree);
+
+
 
 module.exports = { Tree, Node };
