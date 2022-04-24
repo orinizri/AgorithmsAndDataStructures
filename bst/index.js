@@ -37,7 +37,20 @@ class Node {
             this.right ? this.right.insert(data) : this.right = node;
         }
     }
+    contains(data) {
+        if (this.data === data) {
+            return this
+        } else if (this.data < data && this.right) {
+            return this.left.contains(data);
+        } else if (this.data > data && this.left) {
+            return this.left.contains(data);
+        }
+        return false;
+    }
 }
 
-
+const node = new Node(2)
+node.right = new Node(3);
+node.left = new Node(1);
+console.log(node.contains(3));
 module.exports = Node;
