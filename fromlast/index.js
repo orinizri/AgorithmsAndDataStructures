@@ -25,13 +25,13 @@ function fromLast2(list, n) {
     let fast = list.head;
     let slow = list.head;
     for (let i=0 ; i < n ; i++) {
-        fast = fast.next
+        fast = fast.next;
     }
     while (fast.next) {
         fast = fast.next;
         slow = slow.next;
     }
-    return slow
+    return slow;
 }
 
    const list = new LinkedList();
