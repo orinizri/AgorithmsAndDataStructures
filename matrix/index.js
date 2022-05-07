@@ -25,7 +25,7 @@ function matrix(n) {
     let endColumn = n - 1;
 
     for (let i = 0 ; i < n ; i++) {
-        results.push([])
+        results.push([]);
     }
     while (startColumn <= endColumn && startRow <= endRow) {
         // first row
@@ -51,7 +51,7 @@ function matrix(n) {
             results[i][startColumn] = counter;
             counter++;
         }
-        startColumn++
+        startColumn++;
     }
     return results;
 }
