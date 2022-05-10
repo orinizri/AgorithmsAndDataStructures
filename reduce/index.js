@@ -1,7 +1,6 @@
 
 
 
-
 const reduce = (array, cb, initialValue) => {
     let result = initialValue;
     array.forEach(item =>
