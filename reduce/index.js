@@ -4,7 +4,7 @@
 const reduce = (array, cb, initialValue) => {
     let result = initialValue;
     array.forEach(item =>
-        result = cb.call(null, result, item));
+        result = cb.call(undefined, result, item));
     return result;
 };
 
