@@ -2,9 +2,9 @@
 
 
 function rotate(nums, k) {
-    for (let i = 0 ; i < k ; i++) {
-        let lastNum = nums.pop();
-        nums.unshift(lastNum)
+    for (k--) {
+        
+        nums.unshift(nums.pop())
     }
     return nums
 };
