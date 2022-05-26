@@ -14,3 +14,6 @@ function hammingWeight (n) {
     }
     return num_of_1s
 };
+function hammingWeight2 (n) {
+    n.toString(2).match(/1/g)?.length ?? 0;
+};
