@@ -12,7 +12,7 @@ const reduce = (array, fn, initialValue = '') => {
     return result;
 };
 
-// version 2 - slower 
+// version 2 - a bit slower 
 const reduce_v2 = (fn, array, initialValue = 0) => {
     let result = initialValue || array.shift();
     while (array.length > 0) {
