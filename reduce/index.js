@@ -1,5 +1,5 @@
 
-// write a function that will mimic reduce behavior
+// write a function that will mimic reduce function behavior
 
 //testing performance 
 var startTime = performance.now()
