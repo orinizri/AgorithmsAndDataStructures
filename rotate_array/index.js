@@ -3,7 +3,6 @@
 
 function rotate(nums, k) {
     for (k--) {
-        
         nums.unshift(nums.pop())
     }
     return nums
