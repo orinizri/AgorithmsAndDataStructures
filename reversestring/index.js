@@ -19,6 +19,18 @@ function reverse2(str) {
 function reverse3(str) {
     return str.split('').str.reduce((accumulator, currentValue) => currentValue + accumulator);
 }
+function reverse4(str) {
+    let l = 0;
+    let r = s.length - 1
+    while (l < r) {
+        let leftLetter = s[l];
+        str[l] = str[r];
+        str[r] = leftLetter
+        l++
+        r--
+    }
+    return str
+}
 function reverse_recursion(str) {
     // Base case
     if (str.length < 2) return str;
