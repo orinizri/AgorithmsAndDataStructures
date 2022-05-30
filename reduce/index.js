@@ -2,7 +2,7 @@
 // write a function that will mimic reduce function behavior
 
 //testing performance 
-var startTime = performance.now()
+const startTime = performance.now()
 
 // version 1 - better, dropped the fn.call 
 const reduce = (array, fn, initialValue = '') => {
@@ -26,6 +26,6 @@ const reduce_v2 = (fn, array, initialValue = 0) => {
 console.log(reduce_v2((a,b)=> a+b, [1,2,3], 0))
 console.log(reduce_v2((a,b)=> a+b, ["a","b","c"]))
 
-var endTime = performance.now()
+const endTime = performance.now()
 
 console.log(`Call to doSomething took ${endTime - startTime} milliseconds`)
